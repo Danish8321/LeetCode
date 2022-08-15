@@ -1,0 +1,21 @@
+public class Solution {
+    public int RomanToInt(string s) {
+     char[] symbol={'I','V','X','L','C','D','M'};   
+     int[] value={1,5,10,50,100,500,1000};  
+     int sum=0;
+     int len=s.Length;
+     for(int i=0;i<len;i++){
+       if(i==len-1){
+           sum+=value[Array.IndexOf(symbol,s[i])];
+           break;
+       }  
+       if(Array.IndexOf(symbol,s[i])>=Array.IndexOf(symbol,s[i+1])){
+           sum+=value[Array.IndexOf(symbol,s[i])];
+       }
+       else{
+       sum-=value[Array.IndexOf(symbol,s[i])];  
+       }         
+     }
+        return sum;
+    }
+}
