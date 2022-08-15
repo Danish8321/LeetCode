@@ -1,0 +1,49 @@
+internal class Program
+{
+    static int count = 0;
+    private static void Main(string[] args)
+    {
+        do
+        {
+            Console.WriteLine("Enter the num");
+            string num = Console.ReadLine();
+            var result = NumberOfSteps(Convert.ToInt32(num));
+            Console.WriteLine($"Result : {result}");
+            Console.WriteLine("Do you want to continue ? Y or N");
+        } while (Console.ReadLine()=="Y");
+        //Console.ReadKey();
+    }
+
+    private static int NumberOfSteps(int num)
+    {
+        if (num == 0)
+        {
+            return count;
+        }
+        count++;
+        if (num % 2 == 0)
+        {
+            return NumberOfSteps(num / 2);
+        }
+        return NumberOfSteps(num - 1);
+    }
+}
+
+//Leetcode submission by me
+//public class Solution
+//{
+//    int count = 0;
+//    public int NumberOfSteps(int num)
+//    {
+//        if (num == 0)
+//        {
+//            return count;
+//        }
+//        count++;
+//        if (num % 2 == 0)
+//        {
+//            return NumberOfSteps(num / 2);
+//        }
+//        return NumberOfSteps(num - 1);
+//    }
+//}
